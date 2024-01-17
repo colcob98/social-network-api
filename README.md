@@ -4,5 +4,5 @@ This app brings with it a CRUD api with the functionality of a basic social medi
 
 # Usage
 
-A demo can be viewed ![here](https://drive.google.com/file/d/1vajET-Jb-UXFQeey9vw5lPYYwxk7915l/view).
+A demo can be viewed [here](https://drive.google.com/file/d/1vajET-Jb-UXFQeey9vw5lPYYwxk7915l/view).
 
