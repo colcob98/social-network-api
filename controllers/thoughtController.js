@@ -62,7 +62,7 @@ module.exports = {
   },
   async deleteThought(req, res) {
     try {
-      deletedThought = await Thought.findOneAndRemove({
+      deletedThought = await Thought.findOneAndDelete({
         _id: req.params.thoughtId,
       });
       if (!deletedThought) {
@@ -77,7 +77,7 @@ module.exports = {
   async addReaction(req, res) {
     try {
       const reaction = await Thought.findOneAndUpdate(
-        { _id: req.body.userId },
+        { _id: req.params.thoughtId },
         { $addToSet: { reactions: req.body } },
         { runValidators: true, new: true }
       );
@@ -95,7 +95,7 @@ module.exports = {
   async removeReaction(req, res) {
     try {
       const reaction = await Thought.findOneAndUpdate(
-        { _id: req.body.thoughtId },
+        { _id: req.params.thoughtId },
         { $pull: { reactions: req.params.reactionId } },
         { new: true }
       );

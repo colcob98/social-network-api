@@ -25,6 +25,7 @@ module.exports = {
 
       res.json(singleUser);
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
@@ -60,7 +61,7 @@ module.exports = {
   },
   async deleteUser(req, res) {
     try {
-      const deletedUser = await User.findOneAndRemove({
+      const deletedUser = await User.findOneAndDelete({
         _id: req.params.userId,
       });
       if (!deletedUser) {
@@ -71,6 +72,7 @@ module.exports = {
         res.json({ message: "User successfully deleted!" });
       }
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },

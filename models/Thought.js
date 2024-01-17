@@ -7,14 +7,14 @@ const thoughtSchema = new Schema(
     thoughtText: {
       type: String,
       required: true,
-      minlenght: 1,
+      minlength: 1,
       maxlength: 280,
     },
     createdAt: {
       type: Date,
       default: Date.now,
       get: (timestamp) => {
-        return dayjs(timestamp).format("YYYY-MM-DD HH:mm:ss"); // Customize the format as needed
+        return dayjs(timestamp).format("YYYY-MM-DD HH:mm:ss");
       },
     },
     username: {
@@ -35,6 +35,6 @@ thoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
 
-const Thought = model("thought", thoughtSchema);
+const Thought = model("Thought", thoughtSchema);
 
 module.exports = Thought;
